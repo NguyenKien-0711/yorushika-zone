@@ -8,13 +8,12 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-cyan-100: oklch(95.6% 0.045 203.388);
-    --color-cyan-300: oklch(86.5% 0.127 207.078);
     --color-cyan-600: oklch(60.9% 0.126 221.723);
-    --color-cyan-800: oklch(45% 0.085 224.283);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-xl: 36rem;
     --container-7xl: 80rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
@@ -32,6 +31,7 @@
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-light-blue: #add8e6;
+    --font-bitcount: "Bitcount Grid Single Ink", system-ui;
   }
 }
 @layer base {
@@ -198,11 +198,21 @@
   .flex {
     display: flex;
   }
+  .hidden {
+    display: none;
+  }
   .table {
     display: table;
   }
+  .size-6 {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
   .max-w-7xl {
     max-width: var(--container-7xl);
+  }
+  .max-w-xl {
+    max-width: var(--container-xl);
   }
   .basis-1 {
     flex-basis: calc(var(--spacing) * 1);
@@ -256,14 +266,11 @@
   .bg-cyan-100 {
     background-color: var(--color-cyan-100);
   }
-  .bg-cyan-300 {
-    background-color: var(--color-cyan-300);
-  }
   .bg-cyan-600 {
     background-color: var(--color-cyan-600);
   }
-  .bg-cyan-800 {
-    background-color: var(--color-cyan-800);
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
   }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
@@ -273,6 +280,9 @@
   }
   .text-center {
     text-align: center;
+  }
+  .font-bitcount {
+    font-family: var(--font-bitcount);
   }
   .text-base {
     font-size: var(--text-base);
@@ -310,7 +320,49 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .lg\:flex {
+    @media (width >= 64rem) {
+      display: flex;
+    }
+  }
+  .lg\:hidden {
+    @media (width >= 64rem) {
+      display: none;
+    }
+  }
+  .lg\:basis-1\/6 {
+    @media (width >= 64rem) {
+      flex-basis: calc(1/6 * 100%);
+    }
+  }
+  .lg\:basis-3\/6 {
+    @media (width >= 64rem) {
+      flex-basis: calc(3/6 * 100%);
+    }
+  }
+  .lg\:items-center {
+    @media (width >= 64rem) {
+      align-items: center;
+    }
+  }
+  .lg\:justify-end {
+    @media (width >= 64rem) {
+      justify-content: flex-end;
+    }
+  }
+  .lg\:justify-start {
+    @media (width >= 64rem) {
+      justify-content: flex-start;
+    }
+  }
+  .lg\:px-4 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 4);
+    }
+  }
 }
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single+Ink:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 .ndk-top-menu-item {
   position: relative;
   cursor: pointer;
